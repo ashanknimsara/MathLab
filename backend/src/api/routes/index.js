@@ -6,6 +6,7 @@ const routesInit = (app, passport)=>{
     }),
     (req, res)=>{
         console.log("User Authenticated");
+        //res.redirect("/profile");
     }
     );
 };  

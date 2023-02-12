@@ -37,7 +37,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res, next)=>{
+//login
+app.get("/login", (req, res, next)=>{
     res.send("<a href='http://localhost:8090/auth/google'>Login with Google</a>");
     next();
 });

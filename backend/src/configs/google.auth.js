@@ -29,7 +29,8 @@ const googleAuth = (passport) => {
                 //SELECT * from User WHERE googleId = profile.id
                 let user = await User.findOne({googleId:profile.id});
                 if (user){
-                    return callback(null, profile); 
+                    return callback(null, profile);
+
                 }
                 User.create(userObj)
                 .then((user)=>{
@@ -38,6 +39,7 @@ const googleAuth = (passport) => {
                 .catch((err)=>{
                     return callback(err.message);
                 })
+
                 
             }
         )
@@ -52,6 +54,7 @@ const googleAuth = (passport) => {
             callback(err, user);
         });
     });
+    
 };
 
 export {googleAuth};

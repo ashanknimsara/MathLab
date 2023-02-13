@@ -10,6 +10,7 @@ import {connect} from "./utils/db.connection";
 import { googleAuth } from "./configs/google.auth";
 import mongoose from "mongoose";
 import {routesInit} from "./api/routes";
+//import {cookieSession} from "cookie-session";
 
 mongoose.set('strictQuery', true);//suppress 'strictQuery' warning..(additional)
 
@@ -29,7 +30,7 @@ app.use(
         cookie: { 
             secure: false,
             expires: new Date(Date.now()+10000),
-            maxAge: 10000 
+            maxAge: 24*60*60*1000
         },
     })
 );

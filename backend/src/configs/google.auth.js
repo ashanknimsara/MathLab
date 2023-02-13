@@ -1,6 +1,8 @@
 import GoogleStrategy from "passport-google-oauth20";
+import passport from "passport"
 import config from ".";
 import User from "../api/model/user.model";
+import mongoose from "mongoose";
 
 
 const googleAuth = (passport) => {
@@ -16,7 +18,7 @@ const googleAuth = (passport) => {
                 callbackURL: config.GOOGLE_REDIRECT_URL
 
             },
-            async (accessToken, refreshToken, profile, callback) => {
+            async (req, accessToken, refreshToken, profile, callback) => {
                 const userObj = {
                     googleId:profile.id,
                     displayName:profile.displayName,
@@ -27,19 +29,26 @@ const googleAuth = (passport) => {
 
                 }
                 //SELECT * from User WHERE googleId = profile.id
-                let user = await User.findOne({googleId:profile.id});
+                let user = await User.findOne({googleId: profile.id});
                 if (user){
                     return callback(null, profile);
-
+                    
                 }
                 User.create(userObj)
-                .then((user)=>{
+                .then((user)=>{       
                     return callback(null,user);
                 })
                 .catch((err)=>{
                     return callback(err.message);
-                })
-
+                })  
+                /* const user = await User.findOrCreate({
+                    where: { googleId: profile.id},
+                    defaults: userObj,
+                }).catch((err)=>{
+                    console.log("Error Signing Up",err);
+                    callback(err, null);
+                });
+                if(user && user[0])return callback(null, user && user[0]);  */
                 
             }
         )

@@ -15,7 +15,7 @@ const googleAuth = (passport) => {
             {
                 clientID: config.GOOGLE_CLIENT_ID,
                 clientSecret: config.GOOGLE_CLIENT_SECRET,
-                callbackURL: config.GOOGLE_REDIRECT_URL
+                callbackURL: config.GOOGLE_REDIRECT_URL,
 
             },
             async (req, accessToken, refreshToken, profile, callback) => {
@@ -58,11 +58,20 @@ const googleAuth = (passport) => {
         callback(null, user.id);
     });
 
-    passport.deserializeUser((id, callback) => {
+    passport.deserializeUser(async(id, callback)=>{
+        const user = await User.findOne({where:{id}}).catch((err)=>{
+            console.log("Error deserializing",err);
+            callback(err,null);
+        });
+        if(user) callback(null, user);
+    })
+
+
+   /*  passport.deserializeUser((id, callback) => {
         User.findById(id, (err, user)=>{
             callback(err, user);
         });
-    });
+    }); */
     
 };
 

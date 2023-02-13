@@ -26,10 +26,10 @@ app.use(
         secret: config.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
-        store:MongoStore.create({mongoUrl: config.DB_CONNECTION_STRING}),
+        //store:MongoStore.create({mongoUrl: config.DB_CONNECTION_STRING}),
         cookie: { 
             secure: false,
-            expires: new Date(Date.now()+10000),
+            expires: new Date(Date.now()+24*60*60*1000),
             maxAge: 24*60*60*1000
         },
     })
@@ -42,7 +42,7 @@ app.use(passport.session());
 app.get("/login", (req, res, next)=>{
     res.send("<a href='http://localhost:8090/auth/google'>Login with Google</a>");
     next();
-});
+}); 
 
 app.listen(PORT, ()=>{
     logger.info(`Server is up and running on ${PORT}`);

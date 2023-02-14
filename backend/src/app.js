@@ -38,11 +38,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 //login
 app.get("/login", (req, res, next)=>{
     res.send("<a href='http://localhost:8090/auth/google'>Login with Google</a>");
     next();
-}); 
+});
 
 app.listen(PORT, ()=>{
     logger.info(`Server is up and running on ${PORT}`);

@@ -10,6 +10,7 @@ import {connect} from "./utils/db.connection";
 import { googleAuth } from "./configs/google.auth";
 import mongoose from "mongoose";
 import {routesInit} from "./api/routes";
+import {userApi} from "./configs/fetchUser"
 //import {cookieSession} from "cookie-session";
 
 mongoose.set('strictQuery', true);//suppress 'strictQuery' warning..(additional)
@@ -50,4 +51,5 @@ app.listen(PORT, ()=>{
     connect();
     routesInit(app,passport);
     googleAuth(passport); 
+    
 });

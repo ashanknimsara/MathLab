@@ -3,6 +3,10 @@ import GoogleButton from "react-google-button";
 
 const Login = () => {
 
+    const fetchAuthUser = async()=>{
+        
+    }
+
     const redirectToGoogleAuth = async () => {
         let timer = null;
         const googleLoginURL = "http://localhost:8090/auth/google"
@@ -10,7 +14,9 @@ const Login = () => {
        /*  const newWindow = window.open(googleLoginURL, "_blank", "width= 500, height=600"); */
         //open in new tab
         const newTab = window.open(googleLoginURL, '_blank');
-        newTab.focus(); 
+        newTab.focus();
+        
+        //check authenticated user using timer
         if(newTab){
             timer = setInterval(()=>{
                 if(newTab.closed){

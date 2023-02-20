@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return(
         <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+             <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container">
             <Link to="/" class="nav-link">
             <img
@@ -35,14 +35,17 @@ const Navbar = () => {
                 </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
                 </li>
                 
             </ul>
             <button className="btn btn-outline-primery ms-auto px-4 rounded-pill">
-                <i className="fa fa-sign-in me-2"></i>Login</button>
+                සිංහල</button>
             <button className="btn btn-outline-primery ms-2 px-4 rounded-pill">
-                <i className="fa fa-user-plus me-2"></i>Register</button>
+                தமிழ்</button>
             </div>
         </div>
         </nav>

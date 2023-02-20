@@ -14,11 +14,17 @@ import number9 from '../images/number9.gif'
 import number10 from '../images/number10.gif'
 import number11 from '../images/number11.gif'
 import { Link } from "react-router-dom";
+import "./games.css";
+import Sidebar from './Sidebar';
 
 const Grades = () => {
   return (
     <div>
     <Navbar/>
+    <div className="container2">
+    <div className="sidebar">
+    <Sidebar/>
+    </div>
     <Container>
       <Row>
         <Col>
@@ -83,15 +89,17 @@ const Grades = () => {
         </Col>
         <hr/>
         <Col xs={5} md={2} lg={2}>
+        <Link to="/grade6" class="nav-link">
           <Card className="mb-3">
           <Card.Img style={{  height: "100px"}} variant="top" src={number6}  />
             <Card.Body>
-              <Card.Title><Link to="#" class="nav-link">
+              <Card.Title>
                     Grade 6
-                  </Link></Card.Title>
+                  </Card.Title>
                    
             </Card.Body>
           </Card>
+          </Link>
         </Col><Col xs={5} md={2} lg={2}>
           <Card className="mb-3">
           <Card.Img style={{  height: "100px"}} variant="top" src={number7}  />
@@ -135,6 +143,7 @@ const Grades = () => {
             </Card.Body>
           </Card>
         </Col>
+        <Row>
         <Col xs={5} md={2} lg={2}>
           <Card className="mb-3">
           <Card.Img style={{  height: "100px"}} variant="top" src={number11}  />
@@ -146,12 +155,14 @@ const Grades = () => {
             </Card.Body>
           </Card>
         </Col>
+        </Row>
         
         </Row>
         </Container>
-        <div className="footer">
-            <Footer />
         </div>
+        
+            <Footer />
+        
 
         </div>
   );

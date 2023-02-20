@@ -6,12 +6,23 @@ import category1 from '../images/category1.gif'
 import category2 from '../images/category2.gif'
 import category3 from '../images/category3.gif'
 import { Link } from "react-router-dom";
+import Sidebar from './Sidebar';
+import "./games.css";
 
 const Games = () => {
   return (
     <div>
     <Navbar/>
-    <Container>
+    
+    <div className="container2">
+    <div className="sidebar">
+    <Sidebar/>
+    </div>
+    <Container className="container">
+  <div className="games">
+
+  
+    
       <Row>
         <Col>
           <h1 className="text-center my-5">Fun Games</h1>
@@ -99,7 +110,9 @@ const Games = () => {
           </Card>
         </Col>
         </Row>
+        </div>
         </Container>
+        </div>
         <div className="footer">
             <Footer />
         </div>

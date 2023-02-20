@@ -2,17 +2,17 @@ import React from "react";
 import About from "./About";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import homeimg from "../images/homeimg.png"
+import homeimg from "../images/homeimg2.png"
 import { Link } from "react-router-dom";
 
 const Home = () => {
     return(
         <div>
             <Navbar/>
-            <section id="Home" >
+            <section id="Home" className="pt-5">
             
               <div className="container">
-                <br/><br/><br/><br/>
+                
 
                 <div className="row justify-content-left">
                   <div className="col-md-8 mt-5">
